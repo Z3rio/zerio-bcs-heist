@@ -4,6 +4,7 @@ lua54 "yes"
 
 author "Zerio#0880"
 description "Free and open sourced bobcat security heist"
+repostitory "http://github.com/"
 
 shared_scripts {"config.lua", "lang.lua", "langs/en.lua"}
 
