@@ -127,6 +127,8 @@ Citizen.CreateThread(function()
             currentprompt = nil
         end
 
+        Functions.OpenSafe()
+
         trolleys.goldprompts = {}
         trolleys.moneyprompts = {}
 
@@ -291,7 +293,6 @@ Citizen.CreateThread(function()
             if output then
                 TriggerServerEvent("zerio-bcs-heist:server:removec4")
                 Functions.C4Animation(Config.Positions.vault.playerpos)
-                Functions.OpenSafe()
                 TriggerServerEvent("zerio-bcs-heist:server:sync3")
             else
                 currentprompt = exports["zerio-proximityprompt"]:AddNewPrompt({
