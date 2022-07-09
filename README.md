@@ -1,7 +1,8 @@
-# zerio-bcs-heist![zerio-bcs-heist|690x388, 50%](upload://lEVRsGwVvhWAeWA7qRIX834jvTs.jpeg)
+![zerio-bcs-heist](https://user-images.githubusercontent.com/54480523/178087750-39693b1f-a846-4568-a19a-1c86e1963b4e.jpg)
 
 **Zerio Bobcat Security Heist**
 The new and completely free bobcat security heist perfect for gabz mlo.
+
 
 **Requirements**
 - Either [QB-Core](https://github.com/qbcore-framework) or [ESX](https://github.com/esx-framework/esx-legacy)
@@ -29,14 +30,6 @@ https://youtu.be/P0h3W8WqN2M
 **Custom doorlock systems**
 I dont want to use qb-doorlock / ox_doorlock? What can I do.
 Either try to modify it yourself since all the files are open sourced, if not then you can always try to contact someone that knows how to code, lastly if you have actually tried it yourself then you can always add it as an suggestion.
-
-|                                         |                                |
-|-------------------------------------|----------------------------|
-| Code is accessible       | Yes|
-| Subscription-based      | No                 |
-| Lines (approximately)  | 1000  |
-| Requirements                | See above|
-| Support                           | Partial                 |
 
 **Additional notes**
 This is my first robbery / heist script (also the reason it's free) so I appreciate all and any feedback I get. Also thanks to the random forum people that had tutorials on some heist animations, I would probably never have found the names otherwise haha
