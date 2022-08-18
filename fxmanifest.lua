@@ -8,7 +8,7 @@ repostitory "http://github.com/"
 
 shared_scripts {"config.lua", "lang.lua", "langs/en.lua"}
 
-server_scripts {'@oxmysql/lib/MySQL.lua', "server/functions.lua", "server/main.lua"}
+server_scripts {'@oxmysql/lib/MySQL.lua', "server/versioncheck.lua", "server/functions.lua", "server/main.lua"}
 
 client_scripts {"client/functions.lua", "client/main.lua"}
 
