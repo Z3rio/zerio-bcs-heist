@@ -10,8 +10,7 @@ if GetResourceState("qb-core") == "started" then
     QBCore = exports['qb-core']:GetCoreObject()
     TriggerCallback = QBCore.Functions.TriggerCallback
 end
-if GetResourceState("es_extended") == "started" then
-    ESX = nil
+if GetResourceState("es_extended") == "started" and ESX == nil then
     CreateThread(function()
         while ESX == nil do
             TriggerEvent("esx:getSharedObject", function(obj)
