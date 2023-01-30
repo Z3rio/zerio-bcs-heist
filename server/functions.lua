@@ -3,10 +3,13 @@ if GetResourceState("qb-core") == "started" then
     CreateCallback = QBCore.Functions.CreateCallback
 end
 
-if GetResourceState("es_extended") == "started" and ESX == nil then
-    TriggerEvent("esx:getSharedObject", function(obj)
-        ESX = obj
-    end)
+if GetResourceState("es_extended") == "started" then
+    if ESX == nil then
+        TriggerEvent("esx:getSharedObject", function(obj)
+            ESX = obj
+        end)
+    end
+    
     CreateCallback = ESX.RegisterServerCallback
 end
 
