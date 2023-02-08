@@ -1,4 +1,6 @@
 local lootleft = 0
+local CurrentCops = -0
+
 trolleys, currentprompt, currentlydatacracking, currentlydatacracking2, npcsToRemove, promptsToRemove, doors = {
     gold = {},
     goldprompts = {},
@@ -24,6 +26,11 @@ if GetResourceState("es_extended") == "started" then
         TriggerCallback = ESX.TriggerServerCallback
     end)
 end
+
+RegisterNetEvent('police:SetCopCount')
+AddEventHandler('police:SetCopCount', function(amount)
+    CurrentCops = amount
+end)
 
 Functions = {
     Reset = function()
@@ -91,8 +98,7 @@ Functions = {
             usage = function()
                 TriggerCallback("zerio-bcs-heist:server:hasitem", function(result)
                     if result then
-                        TriggerCallback("zerio-bcs-heist:server:getpolicecount", function(count)
-                            if count >= Config.PoliceNeeded then
+                            if CurrentCops >= Config.PoliceNeeded then
                                 SetCurrentPedWeapon(PlayerPedId(), GetHashKey("weapon_unarmed"), true)
                                 DisableAllControlActions()
                                 FreezeEntityPosition(PlayerPedId(), true)
@@ -115,7 +121,6 @@ Functions = {
                             else
                                 Functions.Notify(Lang:t("error.notenoughpolice"), "error")
                             end
-                        end)
                     else
                         Functions.Notify(Lang:t("error.donthavethermite"), "error")
                     end
