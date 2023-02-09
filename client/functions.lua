@@ -98,29 +98,29 @@ Functions = {
             usage = function()
                 TriggerCallback("zerio-bcs-heist:server:hasitem", function(result)
                     if result then
-                            if CurrentCops >= Config.PoliceNeeded then
-                                SetCurrentPedWeapon(PlayerPedId(), GetHashKey("weapon_unarmed"), true)
-                                DisableAllControlActions()
-                                FreezeEntityPosition(PlayerPedId(), true)
-                                exports["memorygame"]:thermiteminigame(5, 5, 3, 10, function()
-                                    FreezeEntityPosition(PlayerPedId(), false)
-                                    if currentprompt ~= nil then
-                                        currentprompt:Remove()
-                                        currentprompt = nil
-                                    end
-                                    TriggerServerEvent("zerio-bcs-heist:server:removethermite")
-                                    Functions.Notify(Lang:t("success.hackingcompleted"), "success")
-                                    Functions.ThermiteAnimation(Config.Positions.thermite1.playerpos,
-                                        Config.Positions.thermite1.burnpos, "")
-                                    Functions.UpdateDoor("bobcatsecurity-maindoor", false)
-                                    Functions.Notify(Lang:t("success.thermite"), "success")
-                                end, function()
-                                    FreezeEntityPosition(PlayerPedId(), false)
-                                    Functions.Notify(Lang:t("error.hackingfailed"), "error")
-                                end)
-                            else
-                                Functions.Notify(Lang:t("error.notenoughpolice"), "error")
-                            end
+                        if CurrentCops >= Config.PoliceNeeded then
+                            SetCurrentPedWeapon(PlayerPedId(), GetHashKey("weapon_unarmed"), true)
+                            DisableAllControlActions()
+                            FreezeEntityPosition(PlayerPedId(), true)
+                            exports["memorygame"]:thermiteminigame(5, 5, 3, 10, function()
+                                FreezeEntityPosition(PlayerPedId(), false)
+                                if currentprompt ~= nil then
+                                    currentprompt:Remove()
+                                    currentprompt = nil
+                                end
+                                TriggerServerEvent("zerio-bcs-heist:server:removethermite")
+                                Functions.Notify(Lang:t("success.hackingcompleted"), "success")
+                                Functions.ThermiteAnimation(Config.Positions.thermite1.playerpos,
+                                    Config.Positions.thermite1.burnpos, "")
+                                Functions.UpdateDoor("bobcatsecurity-maindoor", false)
+                                Functions.Notify(Lang:t("success.thermite"), "success")
+                            end, function()
+                                FreezeEntityPosition(PlayerPedId(), false)
+                                Functions.Notify(Lang:t("error.hackingfailed"), "error")
+                            end)
+                        else
+                            Functions.Notify(Lang:t("error.notenoughpolice"), "error")
+                        end
                     else
                         Functions.Notify(Lang:t("error.donthavethermite"), "error")
                     end
