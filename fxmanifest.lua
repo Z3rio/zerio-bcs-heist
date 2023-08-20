@@ -7,13 +7,33 @@ description "Free and open sourced bobcat security heist"
 repostitory "http://github.com/"
 
 shared_scripts {
-    -- '@es_extended/imports.lua', -- Uncomment if you use esx legacy 1.8.5 or above
-    "config.lua", "lang.lua", "langs/en.lua"}
+    -- Uncomment if you use esx legacy 1.8.5 or above
+    -- '@es_extended/imports.lua',
 
-server_scripts {'@oxmysql/lib/MySQL.lua', "server/functions.lua", "server/main.lua"}
+    "config.lua",
+    "lang.lua",
+    "langs/en.lua"
+}
 
-client_scripts {"client/functions.lua", "client/main.lua"}
+server_scripts {
+    '@oxmysql/lib/MySQL.lua',
+    "server/functions.lua",
+    "server/main.lua"
+}
 
-dependencies {"zerio-proximityprompt", "cfx-gabz-bobcat", "memorygame", "datacrack"}
+client_scripts {
+    "client/functions.lua",
+    "client/main.lua"
+}
 
-escrow_ignore {"*.lua", "**/*.lua"}
+dependencies {
+    "zerio-proximityprompt",
+    "cfx-gabz-bobcat",
+    "memorygame",
+    "datacrack"
+}
+
+escrow_ignore {
+    "*.lua",
+    "**/*.lua"
+}
