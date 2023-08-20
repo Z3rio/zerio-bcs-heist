@@ -4,7 +4,7 @@ lua54 "yes"
 
 author "Zerio#0880"
 description "Free and open sourced bobcat security heist"
-repostitory "http://github.com/"
+repostitory "https://github.com/Z3rio/zerio-bcs-heist"
 
 shared_scripts {
     -- Uncomment if you use esx legacy 1.8.5 or above
@@ -28,7 +28,7 @@ client_scripts {
 
 dependencies {
     "zerio-proximityprompt",
-    "cfx-gabz-bobcat",
+    -- "cfx-gabz-bobcat",
     "memorygame",
     "datacrack"
 }
