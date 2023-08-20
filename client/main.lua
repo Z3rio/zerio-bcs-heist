@@ -1,4 +1,13 @@
 Citizen.CreateThread(function()
+    while isProximityPromptsLoaded == false do
+        if pcall(function()
+            local prompts = exports["zerio-proximityprompt"].AddNewPrompt
+        end) then
+            isProximityPromptsLoaded = true
+        end
+        Wait(250)
+    end
+
     Functions.Reset()
 
     local blip = AddBlipForCoord(Config.Blip.position.x, Config.Blip.position.y, Config.Blip.position.z)
@@ -40,6 +49,7 @@ Citizen.CreateThread(function()
         Citizen.Wait(13000)
         StopParticleFxLooped(effect, 0)
 
+        Functions.awaitProximityPrompt()
         currentprompt = exports["zerio-proximityprompt"]:AddNewPrompt({
             name = "bobcatsecurity-placethermite2",
             objecttext = "Bobcat Security",
@@ -89,6 +99,7 @@ Citizen.CreateThread(function()
         Citizen.Wait(13000)
         StopParticleFxLooped(effect, 0)
 
+        Functions.awaitProximityPrompt()
         currentprompt = exports["zerio-proximityprompt"]:AddNewPrompt({
             name = "bobcatsecurity-swipesecuritycard",
             objecttext = "Bobcat Security",
@@ -133,6 +144,7 @@ Citizen.CreateThread(function()
         trolleys.moneyprompts = {}
 
         for i, v in pairs(Config.Positions.gold) do
+            Functions.awaitProximityPrompt()
             local prompt = exports["zerio-proximityprompt"]:AddNewPrompt({
                 name = "bobcatsecurity-takegold" .. tostring(i),
                 objecttext = "Bobcat Security",
@@ -152,6 +164,7 @@ Citizen.CreateThread(function()
         end
 
         for i, v in pairs(Config.Positions.money) do
+            Functions.awaitProximityPrompt()
             local prompt = exports["zerio-proximityprompt"]:AddNewPrompt({
                 name = "bobcatsecurity-takemoney" .. tostring(i),
                 objecttext = "Bobcat Security",
@@ -233,6 +246,7 @@ Citizen.CreateThread(function()
                     table.insert(npcsToRemove, ped)
                 end
 
+                Functions.awaitProximityPrompt()
                 currentprompt = exports["zerio-proximityprompt"]:AddNewPrompt({
                     name = "bobcatsecurity-placec4",
                     objecttext = "Bobcat Security",
@@ -261,6 +275,7 @@ Citizen.CreateThread(function()
                     end
                 })
             else
+                Functions.awaitProximityPrompt()
                 currentprompt = exports["zerio-proximityprompt"]:AddNewPrompt({
                     name = "bobcatsecurity-swipesecuritycard",
                     objecttext = "Bobcat Security",
@@ -295,6 +310,7 @@ Citizen.CreateThread(function()
                 Functions.C4Animation(Config.Positions.vault.playerpos)
                 TriggerServerEvent("zerio-bcs-heist:server:sync3")
             else
+                Functions.awaitProximityPrompt()
                 currentprompt = exports["zerio-proximityprompt"]:AddNewPrompt({
                     name = "bobcatsecurity-placec4",
                     objecttext = "Bobcat Security",

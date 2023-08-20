@@ -5,6 +5,7 @@ trolleys, currentprompt, currentlydatacracking, currentlydatacracking2, npcsToRe
     money = {},
     moneyprompts = {}
 }, nil, false, false, {}, {}, nil
+isProximityPromptsLoaded = false
 
 if GetResourceState("qb-core") == "started" then
     QBCore = exports['qb-core']:GetCoreObject()
@@ -26,6 +27,12 @@ if GetResourceState("es_extended") == "started" then
 end
 
 Functions = {
+    awaitProximityPrompt = function()
+        while isProximityPromptsLoaded == false do
+            Wait(100)
+        end
+    end,
+
     Reset = function()
         if currentprompt ~= nil then
             currentprompt:Remove()
@@ -81,6 +88,7 @@ Functions = {
         Functions.ResetDoors()
         Functions.CloseSafe()
 
+        Functions.awaitProximityPrompt()
         currentprompt = exports["zerio-proximityprompt"]:AddNewPrompt({
             name = "bobcatsecurity-placethermite",
             objecttext = "Bobcat Security",
@@ -381,7 +389,6 @@ Functions = {
             Citizen.Wait(1)
             NetworkRequestControlOfEntity(Trolley)
         end
-        print(Trolley)
         DeleteObject(Trolley)
         NewTrolley = CreateObject(emptyobj, coords + vector3(0.0, 0.0, -0.985), true, false, false)
         if type == "gold" then
