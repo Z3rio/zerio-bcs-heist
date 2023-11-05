@@ -28,7 +28,7 @@ client_scripts {
 
 dependencies {
     "zerio-proximityprompt",
-    -- "cfx-gabz-bobcat",
+    "cfx-gabz-bobcat",
     "memorygame",
     "datacrack"
 }
